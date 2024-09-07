@@ -1,0 +1,349 @@
+[09-05|08:15:31.348] INFO <C Chain> plugin/evm/vm.go:411 Initializing Coreth VM                   Version=v0.13.7 Config="{SnowmanAPIEnabled:false AdminAPIEnabled:false AdminAPIDir: CorethAdminAPIEnabled:false CorethAdminAPIDir: WarpAPIEnabled:false EnabledEthAPIs:[eth eth-filter net web3 internal-eth internal-blockchain internal-transaction internal-account] ContinuousProfilerDir: ContinuousProfilerFrequency:15m0s ContinuousProfilerMaxFiles:5 RPCGasCap:50000000 RPCTxFeeCap:100 TrieCleanCache:512 TrieDirtyCache:512 TrieDirtyCommitTarget:20 TriePrefetcherParallelism:16 SnapshotCache:256 Preimages:false SnapshotWait:false SnapshotVerify:false Pruning:true AcceptorQueueLimit:64 CommitInterval:4096 AllowMissingTries:false PopulateMissingTries:<nil> PopulateMissingTriesParallelism:1024 PruneWarpDB:false MetricsExpensiveEnabled:false LocalTxsEnabled:false TxPoolPriceLimit:1 TxPoolPriceBump:10 TxPoolAccountSlots:16 TxPoolGlobalSlots:5120 TxPoolAccountQueue:64 TxPoolGlobalQueue:1024 TxPoolLifetime:10m0s APIMaxDuration:0s WSCPURefillRate:0s WSCPUMaxStored:0s MaxBlocksPerRequest:0 AllowUnfinalizedQueries:false AllowUnprotectedTxs:false AllowUnprotectedTxHashes:[0xfefb2da535e927b85fe68eb81cb2e4a5827c905f78381a01ef2322aa9b0aee8e] KeystoreDirectory: KeystoreExternalSigner: KeystoreInsecureUnlockAllowed:false PushGossipPercentStake:0.9 PushGossipNumValidators:100 PushGossipNumPeers:0 PushRegossipNumValidators:10 PushRegossipNumPeers:0 PushGossipFrequency:100ms PullGossipFrequency:1s RegossipFrequency:1m0s TxRegossipFrequency:1m0s LogLevel:info LogJSONFormat:false OfflinePruning:false OfflinePruningBloomFilterSize:512 OfflinePruningDataDirectory: MaxOutboundActiveRequests:16 StateSyncEnabled:<nil> StateSyncSkipResume:false StateSyncServerTrieCache:64 StateSyncIDs: StateSyncCommitInterval:16384 StateSyncMinBlocks:300000 StateSyncRequestSize:1024 InspectDatabase:false SkipUpgradeCheck:false AcceptedCacheSize:32 TransactionHistory:0 TxLookupLimit:0 SkipTxIndexing:false WarpOffChainMessages:[]}"
+[09-05|08:15:31.349] WARN <C Chain> plugin/evm/vm.go:414 Deprecation Warning                      msg="tx-regossip-frequency is deprecated, use regossip-frequency instead. "
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Chain ID:  43112
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Consensus: Dummy Consensus Engine
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Hard Forks (block based):
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Hard forks (timestamp based):
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Avalanche Upgrades (timestamp based):
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-05|08:15:31.351] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:15:31.352] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-05|08:15:31.357] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="305.5µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-05|08:15:31.357] INFO <C Chain> plugin/evm/vm.go:517 "lastAccepted = 0x17a7011ebbed7c97c7858cec856bd462a1fe9c216ef5f110b40c3b573dc84c6f"
+[09-05|08:15:31.360] INFO <C Chain> eth/backend.go:146 Allocated memory caches                  "trie clean"=512.00MiB "trie dirty"=512.00MiB "snapshot clean"=256.00MiB
+[09-05|08:15:31.360] INFO <C Chain> core/rawdb/accessors_trie.go:344 State schema set to default              scheme=hash
+[09-05|08:15:31.361] INFO <C Chain> eth/backend.go:194 Initialising Ethereum protocol           network=43112 dbversion=<nil>
+[09-05|08:15:31.361] WARN <C Chain> eth/backend.go:200 Upgrade blockchain database version      from=<nil> to=8
+[09-05|08:15:31.361] INFO <C Chain> core/genesis.go:185 Writing genesis to database
+[09-05|08:15:31.361] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-05|08:15:31.362] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="253.584µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-05|08:15:31.362] INFO <C Chain> core/blockchain.go:345 
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:346 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Chain ID:  43112
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Consensus: Dummy Consensus Engine
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Hard Forks (block based):
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Hard forks (timestamp based):
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Avalanche Upgrades (timestamp based):
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:350 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-05|08:15:31.363] INFO <C Chain> core/blockchain.go:351 
+[09-05|08:15:31.364] INFO <C Chain> core/blockchain.go:776 Loaded most recent local header          number=0 hash=17a701..c84c6f age=3y9mo2w
+[09-05|08:15:31.365] INFO <C Chain> core/blockchain.go:777 Loaded most recent local full block      number=0 hash=17a701..c84c6f age=3y9mo2w
+[09-05|08:15:31.365] INFO <C Chain> core/blockchain.go:1839 Loaded Acceptor tip                      hash=000000..000000
+[09-05|08:15:31.365] INFO <C Chain> core/blockchain.go:1847 Skipping state reprocessing              root=328302..7a638f
+[09-05|08:15:31.365] INFO <C Chain> core/blockchain.go:605 Not warming accepted cache because there are no accepted blocks
+[09-05|08:15:31.365] INFO <C Chain> core/blockchain.go:630 Starting Acceptor                        "queue length"=64
+[09-05|08:15:31.368] INFO <C Chain> core/txpool/legacypool/legacypool.go:480 Legacy pool tip threshold updated        tip=0
+[09-05|08:15:31.369] INFO <C Chain> plugin/evm/atomic_tx_repository.go:107 Initializing atomic transaction repository from scratch
+[09-05|08:15:31.369] INFO <C Chain> plugin/evm/atomic_tx_repository.go:183 Completed atomic transaction repository migration lastAcceptedHeight=0 duration="107.625µs"
+[09-05|08:15:31.370] INFO <C Chain> plugin/evm/atomic_backend.go:132 initializing atomic trie                 lastCommittedHeight=0
+[09-05|08:15:31.370] INFO <C Chain> plugin/evm/atomic_backend.go:213 finished initializing atomic trie        lastAcceptedHeight=0 lastAcceptedAtomicRoot=56e81f..63b421 heightsIndexed=0 lastCommittedRoot=56e81f..63b421 lastCommittedHeight=0 time="181.25µs"
+[09-05|08:15:31.371] INFO <C Chain> proposervm/vm.go:211 initialized proposervm {"state": "before fork"}
+[09-05|08:15:31.371] INFO <C Chain> snowman/engine.go:93 initializing consensus engine
+[09-05|08:15:31.373] INFO <C Chain> plugin/evm/vm.go:1542 Enabled APIs: eth, eth-filter, net, web3, internal-eth, internal-blockchain, internal-transaction, internal-account, avax
+[09-05|08:15:31.374] INFO <C Chain> syncer/state_syncer.go:117 starting state sync
+[09-05|08:15:34.140] INFO <C Chain> syncer/state_syncer.go:478 starting state sync
+[09-05|08:15:36.148] INFO <C Chain> plugin/evm/syncervm_client.go:170 last accepted too close to most recent syncable block, skipping state sync lastAccepted=0 syncableHeight=0
+[09-05|08:15:36.148] INFO <C Chain> syncer/state_syncer.go:400 accepted state summary {"summaryID": "Y4AjCqvf66bpeS4QBv41jUSbKSX2csuxWnBJq3WAkDUyD6NZz", "syncMode": "Skipped", "numTotalSummaries": 1}
+[09-05|08:15:36.149] INFO <C Chain> core/blockchain.go:1815 Initializing snapshots                   async=false rebuild=true headHash=17a701..c84c6f headRoot=328302..7a638f
+[09-05|08:15:36.149] WARN <C Chain> core/state/snapshot/snapshot.go:225 Failed to load snapshot, regenerating    err="missing or corrupted snapshot, no snapshot block hash"
+[09-05|08:15:36.150] INFO <C Chain> core/state/snapshot/snapshot.go:793 Rebuilding state snapshot
+[09-05|08:15:36.151] INFO <C Chain> core/state/snapshot/wipe.go:133 Deleted state snapshot leftovers         kind=accounts wiped=0 elapsed="203.417µs"
+[09-05|08:15:36.152] INFO <C Chain> core/state/snapshot/wipe.go:133 Deleted state snapshot leftovers         kind=storage  wiped=0 elapsed="23.417µs"
+[09-05|08:15:36.151] INFO <C Chain> core/state/snapshot/snapshot.go:361 Waiting for snapshot generation          root=328302..7a638f
+[09-05|08:15:36.152] INFO <C Chain> core/state/snapshot/context.go:104 Wiper running, state snapshotting paused accounts=0 slots=0 storage=0.00B elapsed=1.856ms
+[09-05|08:15:36.154] INFO <C Chain> core/state/snapshot/generate.go:318 Generated state snapshot                 accounts=2 slots=0 storage=121.00B elapsed=1.454ms
+[09-05|08:15:36.154] INFO <C Chain> bootstrap/bootstrapper.go:170 starting bootstrapper {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}
+[09-05|08:15:36.156] INFO <C Chain> bootstrap/bootstrapper.go:375 starting to fetch blocks {"numKnownBlocks": 0, "numAcceptedBlocks": 1, "numMissingBlocks": 1}
+[09-05|08:15:36.156] INFO <C Chain> bootstrap/storage.go:195 executing blocks {"numToExecute": 0}
+[09-05|08:15:36.156] INFO <C Chain> bootstrap/storage.go:187 executed blocks {"numExecuted": 0, "numToExecute": 0, "halted": false, "duration": "57.334µs"}
+[09-05|08:15:36.156] INFO <C Chain> bootstrap/bootstrapper.go:702 waiting for the remaining chains in this subnet to finish syncing
+[09-05|08:15:36.650] INFO <C Chain> snowman/engine.go:513 starting consensus {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}
+[09-05|08:17:19.935] INFO <C Chain> snowman/engine.go:437 shutting down consensus engine
+[09-05|08:17:19.937] INFO <C Chain> core/txpool/legacypool/legacypool.go:441 Transaction pool stopped
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:995 Closing quit channel
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:998 Stopping Acceptor
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1001 Acceptor queue drained                   t="44.5µs"
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1004 Shutting down sender cacher
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1008 Closing scope
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1012 Waiting for background processes to complete
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1031 Shutting down state manager
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1036 State manager shut down                  t="26.125µs"
+[09-05|08:17:19.937] INFO <C Chain> core/blockchain.go:1041 Blockchain stopped
+[09-05|08:17:19.938] INFO <C Chain> eth/backend.go:390 Stopped shutdownTracker
+[09-05|08:17:19.938] INFO <C Chain> eth/backend.go:393 Closed chaindb
+[09-05|08:17:19.938] INFO <C Chain> eth/backend.go:395 Stopped EventMux
+[09-05|08:17:19.938] INFO <C Chain> router/chain_router.go:383 chain shutdown {"shutdownDuration": "3.334167ms"}
+[09-05|08:17:27.213] INFO <C Chain> plugin/evm/vm.go:411 Initializing Coreth VM                   Version=v0.13.7 Config="{SnowmanAPIEnabled:false AdminAPIEnabled:false AdminAPIDir: CorethAdminAPIEnabled:false CorethAdminAPIDir: WarpAPIEnabled:false EnabledEthAPIs:[eth eth-filter net web3 internal-eth internal-blockchain internal-transaction internal-account] ContinuousProfilerDir: ContinuousProfilerFrequency:15m0s ContinuousProfilerMaxFiles:5 RPCGasCap:50000000 RPCTxFeeCap:100 TrieCleanCache:512 TrieDirtyCache:512 TrieDirtyCommitTarget:20 TriePrefetcherParallelism:16 SnapshotCache:256 Preimages:false SnapshotWait:false SnapshotVerify:false Pruning:true AcceptorQueueLimit:64 CommitInterval:4096 AllowMissingTries:false PopulateMissingTries:<nil> PopulateMissingTriesParallelism:1024 PruneWarpDB:false MetricsExpensiveEnabled:false LocalTxsEnabled:false TxPoolPriceLimit:1 TxPoolPriceBump:10 TxPoolAccountSlots:16 TxPoolGlobalSlots:5120 TxPoolAccountQueue:64 TxPoolGlobalQueue:1024 TxPoolLifetime:10m0s APIMaxDuration:0s WSCPURefillRate:0s WSCPUMaxStored:0s MaxBlocksPerRequest:0 AllowUnfinalizedQueries:false AllowUnprotectedTxs:false AllowUnprotectedTxHashes:[0xfefb2da535e927b85fe68eb81cb2e4a5827c905f78381a01ef2322aa9b0aee8e] KeystoreDirectory: KeystoreExternalSigner: KeystoreInsecureUnlockAllowed:false PushGossipPercentStake:0.9 PushGossipNumValidators:100 PushGossipNumPeers:0 PushRegossipNumValidators:10 PushRegossipNumPeers:0 PushGossipFrequency:100ms PullGossipFrequency:1s RegossipFrequency:1m0s TxRegossipFrequency:1m0s LogLevel:info LogJSONFormat:false OfflinePruning:false OfflinePruningBloomFilterSize:512 OfflinePruningDataDirectory: MaxOutboundActiveRequests:16 StateSyncEnabled:<nil> StateSyncSkipResume:false StateSyncServerTrieCache:64 StateSyncIDs: StateSyncCommitInterval:16384 StateSyncMinBlocks:300000 StateSyncRequestSize:1024 InspectDatabase:false SkipUpgradeCheck:false AcceptedCacheSize:32 TransactionHistory:0 TxLookupLimit:0 SkipTxIndexing:false WarpOffChainMessages:[]}"
+[09-05|08:17:27.215] WARN <C Chain> plugin/evm/vm.go:414 Deprecation Warning                      msg="tx-regossip-frequency is deprecated, use regossip-frequency instead. "
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 Chain ID:  43112
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 Consensus: Dummy Consensus Engine
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 Hard Forks (block based):
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 Hard forks (timestamp based):
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506 Avalanche Upgrades (timestamp based):
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-05|08:17:27.217] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-05|08:17:27.218] INFO <C Chain> plugin/evm/vm.go:506 
+[09-05|08:17:27.219] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-05|08:17:27.225] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="377.5µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-05|08:17:27.226] INFO <C Chain> plugin/evm/vm.go:517 "lastAccepted = 0x17a7011ebbed7c97c7858cec856bd462a1fe9c216ef5f110b40c3b573dc84c6f"
+[09-05|08:17:27.229] INFO <C Chain> eth/backend.go:146 Allocated memory caches                  "trie clean"=512.00MiB "trie dirty"=512.00MiB "snapshot clean"=256.00MiB
+[09-05|08:17:27.230] INFO <C Chain> core/rawdb/accessors_trie.go:347 State scheme set to already existing     scheme=hash
+[09-05|08:17:27.231] INFO <C Chain> eth/backend.go:194 Initialising Ethereum protocol           network=43112 dbversion=8
+[09-05|08:17:27.232] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-05|08:17:27.232] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="5.375µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:345 
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:346 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Chain ID:  43112
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Consensus: Dummy Consensus Engine
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Hard Forks (block based):
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Hard forks (timestamp based):
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Avalanche Upgrades (timestamp based):
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:348 
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:350 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-05|08:17:27.233] INFO <C Chain> core/blockchain.go:351 
+[09-05|08:17:27.235] INFO <C Chain> core/blockchain.go:776 Loaded most recent local header          number=0 hash=17a701..c84c6f age=3y9mo2w
+[09-05|08:17:27.235] INFO <C Chain> core/blockchain.go:777 Loaded most recent local full block      number=0 hash=17a701..c84c6f age=3y9mo2w
+[09-05|08:17:27.235] INFO <C Chain> core/blockchain.go:1839 Loaded Acceptor tip                      hash=000000..000000
+[09-05|08:17:27.236] INFO <C Chain> core/blockchain.go:1847 Skipping state reprocessing              root=328302..7a638f
+[09-05|08:17:27.236] INFO <C Chain> core/blockchain.go:605 Not warming accepted cache because there are no accepted blocks
+[09-05|08:17:27.236] INFO <C Chain> core/blockchain.go:630 Starting Acceptor                        "queue length"=64
+[09-05|08:17:27.239] INFO <C Chain> core/txpool/legacypool/legacypool.go:480 Legacy pool tip threshold updated        tip=0
+[09-05|08:17:27.240] INFO <C Chain> plugin/evm/atomic_backend.go:132 initializing atomic trie                 lastCommittedHeight=0
+[09-05|08:17:27.240] INFO <C Chain> plugin/evm/atomic_backend.go:213 finished initializing atomic trie        lastAcceptedHeight=0 lastAcceptedAtomicRoot=56e81f..63b421 heightsIndexed=0 lastCommittedRoot=56e81f..63b421 lastCommittedHeight=0 time="222.667µs"
+[09-05|08:17:27.241] INFO <C Chain> proposervm/vm.go:211 initialized proposervm {"state": "before fork"}
+[09-05|08:17:27.242] INFO <C Chain> snowman/engine.go:93 initializing consensus engine
+[09-05|08:17:27.243] INFO <C Chain> plugin/evm/vm.go:1542 Enabled APIs: eth, eth-filter, net, web3, internal-eth, internal-blockchain, internal-transaction, internal-account, avax
+[09-05|08:17:27.244] INFO <C Chain> syncer/state_syncer.go:117 starting state sync
+[09-05|08:17:27.245] INFO <C Chain> syncer/state_syncer.go:478 starting state sync
+[09-05|08:17:31.248] INFO <C Chain> plugin/evm/syncervm_client.go:170 last accepted too close to most recent syncable block, skipping state sync lastAccepted=0 syncableHeight=0
+[09-05|08:17:31.249] INFO <C Chain> syncer/state_syncer.go:400 accepted state summary {"summaryID": "Y4AjCqvf66bpeS4QBv41jUSbKSX2csuxWnBJq3WAkDUyD6NZz", "syncMode": "Skipped", "numTotalSummaries": 1}
+[09-05|08:17:31.250] INFO <C Chain> core/blockchain.go:1815 Initializing snapshots                   async=false rebuild=true headHash=17a701..c84c6f headRoot=328302..7a638f
+[09-05|08:17:31.251] INFO <C Chain> bootstrap/bootstrapper.go:170 starting bootstrapper {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}
+[09-05|08:17:31.254] INFO <C Chain> bootstrap/bootstrapper.go:375 starting to fetch blocks {"numKnownBlocks": 0, "numAcceptedBlocks": 1, "numMissingBlocks": 1}
+[09-05|08:17:31.254] INFO <C Chain> bootstrap/storage.go:195 executing blocks {"numToExecute": 0}
+[09-05|08:17:31.254] INFO <C Chain> bootstrap/storage.go:187 executed blocks {"numExecuted": 0, "numToExecute": 0, "halted": false, "duration": "53.958µs"}
+[09-05|08:17:31.254] INFO <C Chain> bootstrap/bootstrapper.go:702 waiting for the remaining chains in this subnet to finish syncing
+[09-05|08:17:31.257] INFO <C Chain> snowman/engine.go:513 starting consensus {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}
+[09-05|08:17:59.527] INFO <C Chain> snowman/engine.go:437 shutting down consensus engine
+[09-05|08:17:59.529] INFO <C Chain> core/txpool/legacypool/legacypool.go:441 Transaction pool stopped
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:995 Closing quit channel
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:998 Stopping Acceptor
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1001 Acceptor queue drained                   t="43.5µs"
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1004 Shutting down sender cacher
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1008 Closing scope
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1012 Waiting for background processes to complete
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1031 Shutting down state manager
+[09-05|08:17:59.529] INFO <C Chain> core/blockchain.go:1036 State manager shut down                  t="27.292µs"
+[09-05|08:17:59.530] INFO <C Chain> core/blockchain.go:1041 Blockchain stopped
+[09-05|08:17:59.530] INFO <C Chain> eth/backend.go:390 Stopped shutdownTracker
+[09-05|08:17:59.530] INFO <C Chain> eth/backend.go:393 Closed chaindb
+[09-05|08:17:59.530] INFO <C Chain> eth/backend.go:395 Stopped EventMux
+[09-05|08:17:59.530] INFO <C Chain> router/chain_router.go:383 chain shutdown {"shutdownDuration": "3.264916ms"}
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:411 Initializing Coreth VM                   Version=v0.13.7 Config="{SnowmanAPIEnabled:false AdminAPIEnabled:false AdminAPIDir: CorethAdminAPIEnabled:false CorethAdminAPIDir: WarpAPIEnabled:false EnabledEthAPIs:[eth eth-filter net web3 internal-eth internal-blockchain internal-transaction internal-account] ContinuousProfilerDir: ContinuousProfilerFrequency:15m0s ContinuousProfilerMaxFiles:5 RPCGasCap:50000000 RPCTxFeeCap:100 TrieCleanCache:512 TrieDirtyCache:512 TrieDirtyCommitTarget:20 TriePrefetcherParallelism:16 SnapshotCache:256 Preimages:false SnapshotWait:false SnapshotVerify:false Pruning:true AcceptorQueueLimit:64 CommitInterval:4096 AllowMissingTries:false PopulateMissingTries:<nil> PopulateMissingTriesParallelism:1024 PruneWarpDB:false MetricsExpensiveEnabled:false LocalTxsEnabled:false TxPoolPriceLimit:1 TxPoolPriceBump:10 TxPoolAccountSlots:16 TxPoolGlobalSlots:5120 TxPoolAccountQueue:64 TxPoolGlobalQueue:1024 TxPoolLifetime:10m0s APIMaxDuration:0s WSCPURefillRate:0s WSCPUMaxStored:0s MaxBlocksPerRequest:0 AllowUnfinalizedQueries:false AllowUnprotectedTxs:false AllowUnprotectedTxHashes:[0xfefb2da535e927b85fe68eb81cb2e4a5827c905f78381a01ef2322aa9b0aee8e] KeystoreDirectory: KeystoreExternalSigner: KeystoreInsecureUnlockAllowed:false PushGossipPercentStake:0.9 PushGossipNumValidators:100 PushGossipNumPeers:0 PushRegossipNumValidators:10 PushRegossipNumPeers:0 PushGossipFrequency:100ms PullGossipFrequency:1s RegossipFrequency:1m0s TxRegossipFrequency:1m0s LogLevel:info LogJSONFormat:false OfflinePruning:false OfflinePruningBloomFilterSize:512 OfflinePruningDataDirectory: MaxOutboundActiveRequests:16 StateSyncEnabled:<nil> StateSyncSkipResume:false StateSyncServerTrieCache:64 StateSyncIDs: StateSyncCommitInterval:16384 StateSyncMinBlocks:300000 StateSyncRequestSize:1024 InspectDatabase:false SkipUpgradeCheck:false AcceptedCacheSize:32 TransactionHistory:0 TxLookupLimit:0 SkipTxIndexing:false WarpOffChainMessages:[]}"
+[09-07|07:45:25.719] WARN <C Chain> plugin/evm/vm.go:414 Deprecation Warning                      msg="tx-regossip-frequency is deprecated, use regossip-frequency instead. "
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506 Chain ID:  43112
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506 Consensus: Dummy Consensus Engine
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506 
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506 Hard Forks (block based):
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-07|07:45:25.719] INFO <C Chain> plugin/evm/vm.go:506  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 Hard forks (timestamp based):
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 Avalanche Upgrades (timestamp based):
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-07|07:45:25.721] INFO <C Chain> plugin/evm/vm.go:506 
+[09-07|07:45:25.721] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-07|07:45:25.721] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="10.854µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-07|07:45:25.722] INFO <C Chain> plugin/evm/vm.go:517 "lastAccepted = 0x17a7011ebbed7c97c7858cec856bd462a1fe9c216ef5f110b40c3b573dc84c6f"
+[09-07|07:45:25.722] INFO <C Chain> eth/backend.go:146 Allocated memory caches                  "trie clean"=512.00MiB "trie dirty"=512.00MiB "snapshot clean"=256.00MiB
+[09-07|07:45:25.722] INFO <C Chain> core/rawdb/accessors_trie.go:347 State scheme set to already existing     scheme=hash
+[09-07|07:45:25.722] INFO <C Chain> eth/backend.go:194 Initialising Ethereum protocol           network=43112 dbversion=8
+[09-07|07:45:25.722] INFO <C Chain> core/state_processor.go:237 Activating new precompile                name=warpConfig config="{\"blockTimestamp\":1607144400,\"quorumNumerator\":0}"
+[09-07|07:45:25.723] INFO <C Chain> trie/triedb/hashdb/database.go:542 Persisted trie from memory database      nodes=3 size=406.00B time="701.617µs" gcnodes=0 gcsize=0.00B gctime=0s livenodes=0 livesize=0.00B
+[09-07|07:45:25.723] INFO <C Chain> core/blockchain.go:345 
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:346 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348 Chain ID:  43112
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348 Consensus: Dummy Consensus Engine
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348 
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348 Hard Forks (block based):
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Homestead:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/homestead.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - DAO Fork:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/dao-fork.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Tangerine Whistle (EIP 150): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/tangerine-whistle.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/1 (EIP 155): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Spurious Dragon/2 (EIP 158): #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/spurious-dragon.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Byzantium:                   #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/byzantium.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Constantinople:              #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/constantinople.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Petersburg:                  #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/petersburg.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Istanbul:                    #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/istanbul.md)
+[09-07|07:45:25.724] INFO <C Chain> core/blockchain.go:348  - Muir Glacier:                #0        (https://github.com/ethereum/execution-specs/blob/master/network-upgrades/mainnet-upgrades/muir-glacier.md)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 Hard forks (timestamp based):
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Cancun Timestamp:              @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 Avalanche Upgrades (timestamp based):
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 1 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.3.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 2 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.4.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 3 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.5.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 4 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.6.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 5 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.7.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase P6 Timestamp        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase 6 Timestamp:        @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Apricot Phase Post-6 Timestamp:   @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.8.0
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Banff Timestamp:                  @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.9.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Cortina Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.10.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Durango Timestamp:                @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.11.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348  - Etna Timestamp:               @1607144400 (https://github.com/ava-labs/avalanchego/releases/tag/v1.12.0)
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 Upgrade Config: {"precompileUpgrades":[{"warpConfig":{"blockTimestamp":1607144400,"quorumNumerator":0}}]}
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:348 
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:350 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:351 
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:776 Loaded most recent local header          number=0 hash=17a701..c84c6f age=3y9mo3w
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:777 Loaded most recent local full block      number=0 hash=17a701..c84c6f age=3y9mo3w
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:1839 Loaded Acceptor tip                      hash=000000..000000
+[09-07|07:45:25.725] INFO <C Chain> core/blockchain.go:1847 Skipping state reprocessing              root=328302..7a638f
+[09-07|07:45:25.726] INFO <C Chain> core/blockchain.go:605 Not warming accepted cache because there are no accepted blocks
+[09-07|07:45:25.726] INFO <C Chain> core/txpool/legacypool/legacypool.go:480 Legacy pool tip threshold updated        tip=0
+[09-07|07:45:25.727] INFO <C Chain> plugin/evm/atomic_backend.go:132 initializing atomic trie                 lastCommittedHeight=0
+[09-07|07:45:25.728] INFO <C Chain> plugin/evm/atomic_backend.go:213 finished initializing atomic trie        lastAcceptedHeight=0 lastAcceptedAtomicRoot=56e81f..63b421 heightsIndexed=0 lastCommittedRoot=56e81f..63b421 lastCommittedHeight=0 time="350.452µs"
+[09-07|07:45:25.729] INFO <C Chain> proposervm/vm.go:211 initialized proposervm {"state": "before fork"}
+[09-07|07:45:25.729] INFO <C Chain> snowman/engine.go:93 initializing consensus engine
+[09-07|07:45:25.732] INFO <C Chain> plugin/evm/vm.go:1542 Enabled APIs: eth, eth-filter, net, web3, internal-eth, internal-blockchain, internal-transaction, internal-account, avax
+[09-07|07:45:25.733] INFO <C Chain> syncer/state_syncer.go:117 starting state sync
+[09-07|07:45:25.727] INFO <C Chain> core/blockchain.go:630 Starting Acceptor                        "queue length"=64
+[09-07|07:45:27.181] INFO <C Chain> syncer/state_syncer.go:478 starting state sync
+[09-07|07:45:29.685] INFO <C Chain> plugin/evm/syncervm_client.go:170 last accepted too close to most recent syncable block, skipping state sync lastAccepted=0 syncableHeight=0
+[09-07|07:45:29.685] INFO <C Chain> syncer/state_syncer.go:400 accepted state summary {"summaryID": "Y4AjCqvf66bpeS4QBv41jUSbKSX2csuxWnBJq3WAkDUyD6NZz", "syncMode": "Skipped", "numTotalSummaries": 1}
+[09-07|07:45:29.685] INFO <C Chain> core/blockchain.go:1815 Initializing snapshots                   async=false rebuild=true headHash=17a701..c84c6f headRoot=328302..7a638f
+[09-07|07:45:29.685] INFO <C Chain> bootstrap/bootstrapper.go:170 starting bootstrapper {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}
+[09-07|07:45:29.688] INFO <C Chain> bootstrap/bootstrapper.go:375 starting to fetch blocks {"numKnownBlocks": 0, "numAcceptedBlocks": 1, "numMissingBlocks": 1}
+[09-07|07:45:29.688] INFO <C Chain> bootstrap/storage.go:195 executing blocks {"numToExecute": 0}
+[09-07|07:45:29.688] INFO <C Chain> bootstrap/storage.go:187 executed blocks {"numExecuted": 0, "numToExecute": 0, "halted": false, "duration": "62.245µs"}
+[09-07|07:45:29.688] INFO <C Chain> snowman/engine.go:513 starting consensus {"lastAcceptedID": "BRAjXJSZWwhknUQ8Jod3nWre9PtiFdBn2dc9GDZtccvKFg2tW", "lastAcceptedHeight": 0}

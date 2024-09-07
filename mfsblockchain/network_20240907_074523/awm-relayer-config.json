@@ -1,0 +1,113 @@
+{
+  "log-level": "info",
+  "storage-location": "/home/ubuntu/.avalanche-cli/runs/awm-relayer-storage",
+  "redis-url": "",
+  "api-port": 0,
+  "metrics-port": 9091,
+  "p-chain-api": {
+    "base-url": "http://127.0.0.1:9650",
+    "query-parameters": {},
+    "http-headers": null
+  },
+  "info-api": {
+    "base-url": "http://127.0.0.1:9650",
+    "query-parameters": {},
+    "http-headers": null
+  },
+  "source-blockchains": [
+    {
+      "subnet-id": "11111111111111111111111111111111LpoYY",
+      "blockchain-id": "NeA134STyTVwife7gYeNQ6Hwi5GPGC2X7aUFvWsnusnpM2do6",
+      "vm": "evm",
+      "rpc-endpoint": {
+        "base-url": "http://127.0.0.1:9650/ext/bc/NeA134STyTVwife7gYeNQ6Hwi5GPGC2X7aUFvWsnusnpM2do6/rpc",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "ws-endpoint": {
+        "base-url": "ws://127.0.0.1:9650/ext/bc/NeA134STyTVwife7gYeNQ6Hwi5GPGC2X7aUFvWsnusnpM2do6/ws",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "message-contracts": {
+        "0x0000000000000000000000000000000000000000": {
+          "message-format": "off-chain-registry",
+          "settings": {
+            "teleporter-registry-address": "0x17aB05351fC94a1a67Bf3f56DdbB941aE6c63E25"
+          }
+        },
+        "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf": {
+          "message-format": "teleporter",
+          "settings": {
+            "reward-address": "0xB3394A8b7d8530785aE716c2eb5C2D26eEbeF6d8"
+          }
+        }
+      },
+      "supported-destinations": null,
+      "process-historical-blocks-from-height": 0,
+      "allowed-origin-sender-addresses": null
+    },
+    {
+      "subnet-id": "2AKbBT8jFUfUsUJ2hhRiDUnAAajJdNhTKeNgEe3q77spMj1N8F",
+      "blockchain-id": "mm5NbUSuEF4iCd6nmEKzm2bKpYYKfbr6T74CVkc3HkLKP3qYM",
+      "vm": "evm",
+      "rpc-endpoint": {
+        "base-url": "http://127.0.0.1:9650/ext/bc/mm5NbUSuEF4iCd6nmEKzm2bKpYYKfbr6T74CVkc3HkLKP3qYM/rpc",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "ws-endpoint": {
+        "base-url": "ws://127.0.0.1:9650/ext/bc/mm5NbUSuEF4iCd6nmEKzm2bKpYYKfbr6T74CVkc3HkLKP3qYM/ws",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "message-contracts": {
+        "0x0000000000000000000000000000000000000000": {
+          "message-format": "off-chain-registry",
+          "settings": {
+            "teleporter-registry-address": "0xbCE38E9D455739cDB64149464333581D911fa3EC"
+          }
+        },
+        "0x253b2784c75e510dD0fF1da844684a1aC0aa5fcf": {
+          "message-format": "teleporter",
+          "settings": {
+            "reward-address": "0xB3394A8b7d8530785aE716c2eb5C2D26eEbeF6d8"
+          }
+        }
+      },
+      "supported-destinations": null,
+      "process-historical-blocks-from-height": 0,
+      "allowed-origin-sender-addresses": null
+    }
+  ],
+  "destination-blockchains": [
+    {
+      "subnet-id": "11111111111111111111111111111111LpoYY",
+      "blockchain-id": "NeA134STyTVwife7gYeNQ6Hwi5GPGC2X7aUFvWsnusnpM2do6",
+      "vm": "evm",
+      "rpc-endpoint": {
+        "base-url": "http://127.0.0.1:9650/ext/bc/NeA134STyTVwife7gYeNQ6Hwi5GPGC2X7aUFvWsnusnpM2do6/rpc",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "kms-key-id": "",
+      "kms-aws-region": "",
+      "account-private-key": "634d63c198703832be5ea89f453faf5b3a68ea7745c0ddbac9ce23a74b967100"
+    },
+    {
+      "subnet-id": "2AKbBT8jFUfUsUJ2hhRiDUnAAajJdNhTKeNgEe3q77spMj1N8F",
+      "blockchain-id": "mm5NbUSuEF4iCd6nmEKzm2bKpYYKfbr6T74CVkc3HkLKP3qYM",
+      "vm": "evm",
+      "rpc-endpoint": {
+        "base-url": "http://127.0.0.1:9650/ext/bc/mm5NbUSuEF4iCd6nmEKzm2bKpYYKfbr6T74CVkc3HkLKP3qYM/rpc",
+        "query-parameters": null,
+        "http-headers": null
+      },
+      "kms-key-id": "",
+      "kms-aws-region": "",
+      "account-private-key": "634d63c198703832be5ea89f453faf5b3a68ea7745c0ddbac9ce23a74b967100"
+    }
+  ],
+  "process-missed-blocks": false,
+  "manual-warp-messages": null
+}

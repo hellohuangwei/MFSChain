@@ -1,0 +1,5 @@
+[09-07|07:45:33.987] INFO subprocess/runtime.go:143 plugin handshake succeeded {"addr": "127.0.0.1:39361"}
+runtime engine: received shutdown signal: terminated
+vm server: graceful termination success
+[09-07|07:45:33.991] INFO subprocess/runtime.go:124 stderr collector shutdown
+[09-07|07:45:33.991] INFO subprocess/runtime.go:111 stdout collector shutdown

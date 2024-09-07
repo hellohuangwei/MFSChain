@@ -1,0 +1,22 @@
+{
+    "api-admin-enabled": "true",
+    "bootstrap-ids": "",
+    "bootstrap-ips": "",
+    "chain-config-dir": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1/chainConfigs",
+    "data-dir": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1",
+    "db-dir": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1/db",
+    "genesis-file": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1/configs/genesis.json",
+    "health-check-frequency": "2s",
+    "http-port": "9650",
+    "index-enabled": "true",
+    "log-dir": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1/logs",
+    "log-display-level": "INFO",
+    "log-level": "INFO",
+    "network-id": "1337",
+    "network-max-reconnect-delay": "1s",
+    "plugin-dir": "/home/ubuntu/.avalanche-cli/plugins",
+    "public-ip": "127.0.0.1",
+    "staking-port": "9651",
+    "subnet-config-dir": "/home/ubuntu/.avalanche-cli/runs/network_20240907_074523/node1/subnetConfigs",
+    "track-subnets": "2AKbBT8jFUfUsUJ2hhRiDUnAAajJdNhTKeNgEe3q77spMj1N8F,2KhsQJhH3VqS7WWMreodAAHpGfGCUNuGQDSaP2vUT29p1HELBV,2STpMLkdZQmgqYNoR4EvKLxx9n21sdMYCbmLqi3G6Rt4Ys8SBZ,2VoVDitz4SX5Q4QgPZ9Byw3yZoGjf6hCqJB3AGerQTELFhJTne,2XAE7zqeF6zXg49DToaKcmWNk82KP9XW2BaNSu4KJgrvDDADBi,2fzAQUaqigEnxFBshUwX9SFDQJWSpwkbeK9QChPBerY9rHpJAq,2hKZdtWvgT3Vv61HmEGtrPDfhK3my453WCxihdZ9VABFx7Ymnn,2qCBYBymAdCag6uLRwj2jSFsfuKsQBoGWrH2xkvDVz86giGPpW,2r4pr33uUBQxkxJkVnFQjGjVToQnpQa6CVD3j7WyKuwNa76JpV,MH6UtWKL5Lq9cKc65rahtLUUhdobY68YspyFrcquVEEgC4hUM"
+}

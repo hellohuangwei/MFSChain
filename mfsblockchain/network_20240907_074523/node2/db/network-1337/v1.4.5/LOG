@@ -1,0 +1,30 @@
+=============== Sep 5, 2024 (-03) ===============
+08:15:31.175463 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+08:15:31.191915 db@open opening
+08:15:31.193231 version@stat F·[] S·0B[] Sc·[]
+08:15:31.202147 db@janitor F·2 G·0
+08:15:31.202377 db@open done T·10.2615ms
+08:17:19.940645 db@close closing
+08:17:19.941199 db@close done T·546.708µs
+=============== Sep 5, 2024 (-03) ===============
+08:17:22.055979 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+08:17:22.058022 version@stat F·[] S·0B[] Sc·[]
+08:17:22.058388 db@open opening
+08:17:22.058664 journal@recovery F·1
+08:17:22.058951 journal@recovery recovering @1
+08:17:22.068462 memdb@flush created L0@2 N·1478 S·334KiB "\x02.\x1f..?&\xbd,v65":"\xf3ow..ork,v95"
+08:17:22.069089 version@stat F·[1] S·334KiB[334KiB] Sc·[0.25]
+08:17:22.086850 db@janitor F·3 G·0
+08:17:22.086908 db@open done T·28.493334ms
+08:17:59.532784 db@close closing
+08:17:59.533491 db@close done T·703.542µs
+=============== Sep 7, 2024 (UTC) ===============
+07:45:25.497420 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+07:45:25.497503 version@stat F·[1] S·334KiB[334KiB] Sc·[0.25]
+07:45:25.497517 db@open opening
+07:45:25.497546 journal@recovery F·1
+07:45:25.499484 journal@recovery recovering @3
+07:45:25.505592 memdb@flush created L0@5 N·137 S·8KiB "Yz\xd3..ing,d1486":"\xeb,\xf2..xed,v1483"
+07:45:25.505761 version@stat F·[2] S·342KiB[342KiB] Sc·[0.50]
+07:45:25.528548 db@janitor F·4 G·0
+07:45:25.528566 db@open done T·31.038573ms
