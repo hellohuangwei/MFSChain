@@ -1,0 +1,90 @@
+// SPDX-License-Identifier: MIT
+pragma solidity >=0.7.0 <0.9.0;
+
+import "./MarketCore.sol";
+
+/// @title MaritimeDataRouter
+/// @notice A decentralized contract for maritime data exchange and dispatch
+contract MaritimeDataRouter is MaritimeDataMarketCore(msg.sender) {
+
+    bool isStopped = false;
+
+    /// @notice Sets the address that receives protocol fees, only accessible by the admin
+    /// @param _feeTo The new address to receive fees
+    function setFeeTo(address _feeTo) external {
+        require(msg.sender == feeToSetter, 'cyberpop: FORBIDDEN');
+        feeTo = _feeTo;
+    }
+
+    /// @notice Modifier to disable certain functions when the system is in emergency state
+    modifier stoppedInEmergency {
+        require(isStopped == false, "this contract enter a state of emergency");
+        _;
+    }
+
+    /// @notice Sets the emergency stop switch, only accessible by the admin
+    /// @param switch_ Boolean to indicate whether the contract should be stopped (true) or active (false)
+    function setIsStopped(bool switch_) external {
+        require(msg.sender == feeToSetter, 'cyberpop: FORBIDDEN');
+        isStopped = switch_;
+    }
+
+    /**
+     * @notice Submit a new maritime data exchange order, such as AIS data trade or port scheduling information sharing
+     * @param maker The address of the order creator
+     * @param salt A random number to ensure unique order hash
+     * @param listingTime Start timestamp when the order becomes active
+     * @param expirationTime End timestamp when the order expires
+     * @param offer Indicates if the maker is offering (true) or requesting (false) data
+     * @param assetData Encoded asset-related data (e.g., token address and amount)
+     * @param callData Encoded call instructions for how data should be delivered or handled
+     * @param orderData Additional metadata about the order, such as data category or usage intent
+     * @param signature Signature verifying the authenticity and integrity of the order
+     */
+    function submitMaritimeOrder(  
+        address maker, 
+        uint256 salt,
+        uint listingTime,
+        uint expirationTime,
+        bool offer,
+        bytes memory assetData, 
+        bytes memory callData, 
+        bytes memory orderData,
+        bytes calldata signature) external {
+        MaritimeDataMarketCore.commitOrder(
+            Order(maker, salt, listingTime, expirationTime, offer),
+            assetData, callData, orderData, signature
+        );  
+    }
+    
+    /**
+     * @notice Cancel an existing maritime data order, typically due to voyage changes or outdated data
+     * @param orderHash The unique hash identifier of the order to be canceled
+     */
+    function revokeMaritimeOrder(bytes32 orderHash) external {
+        MaritimeDataMarketCore.cancelOrder_(orderHash);
+    }
+
+    /**
+     * @notice Match and execute a batch of maritime data exchange orders
+     * @param hashOrders Encoded collection of order hashes
+     * @param singers Encoded collection of signer addresses
+     * @param callDatas Encoded call instructions per order
+     * @param callTarget Encoded collection of target addresses for data delivery
+     * @param signatures Encoded digital signatures for validation
+     * @param orderData Encoded metadata for each order, describing data use or scope
+     */
+    function matchMaritimeOrders(
+        bytes memory hashOrders,
+        bytes memory singers,
+        bytes memory callDatas,
+        bytes memory callTarget,
+        bytes memory signatures,
+        bytes memory orderData
+    ) external stoppedInEmergency {
+        MaritimeDataMarketCore.orderMatch_(
+            hashOrders, singers, callDatas, callTarget, signatures, orderData
+        );    
+    }
+
+}
