@@ -1,20 +1,20 @@
 
 # MaritimeDataRouter Contract
 
-`MaritimeDataRouter` 是一个面向 **海事数据交互** 场景的智能合约，旨在构建去中心化的船岸数据共享市场。该合约允许**船舶、港口、航运公司、数据服务商**等多元参与方提交、撮合和取消经过加密的数据交易订单，从而实现跨组织、跨区域的可信海事数据交互。
+`MaritimeDataRouter` is a smart contract designed specifically for **maritime data exchange** scenarios. It aims to build a decentralized ship-to-shore data sharing marketplace. The contract enables a wide range of participants such as **vessels, ports, shipping companies, and data service providers** to submit, match, and cancel encrypted data trading orders, enabling trusted maritime data exchange across organizations and regions.
 
-> ⚠️ 该路由合约依赖于底层合约 `MaritimeDataMarketCore`，部署和调用前必须先部署核心市场合约。
+> ⚠️ This router contract relies on the base contract `MaritimeDataMarketCore`, which must be deployed before this contract can function.
 
-## 背景与价值
+## Background & Value
 
-当前海事行业面临如下挑战：
+The maritime industry currently faces several challenges:
 
-- 船舶设备产出数据多样且孤立，难以统一接入
-- 港口之间缺乏可信协同机制，数据交互依赖人工对接
-- 数据提供方难以通过加密方式进行安全流通和获利
-- 缺少可验证的订单协议和链上仲裁机制
+- Vessel-generated data is diverse and isolated, making unified access difficult
+- Lack of trusted coordination mechanisms between ports, relying heavily on manual communication
+- Data providers struggle to securely distribute and monetize their data using encryption
+- Absence of verifiable on-chain order protocols and arbitration mechanisms
 
-本合约作为“**去中心化海事数据市场协议**”的关键调度入口，支持多边主体以可组合的方式进行数据挂单、撮合、加密验证和费用分发，从而构建 **跨国、跨平台的智能航运协作网络**。
+This contract serves as the **core router** for a decentralized maritime data marketplace protocol. It supports multi-party data listings, matching, cryptographic validation, and fee distribution, laying the foundation for a **cross-border, cross-platform intelligent shipping collaboration network**.
 
 ## Quick Start
 
@@ -22,43 +22,43 @@
 
 - Node.js v16+
 - Hardhat
-- MetaMask 或任何兼容的以太坊钱包
-- Solidity 版本：>=0.7.0 <0.9.0
+- MetaMask or any Ethereum-compatible wallet
+- Solidity version: >=0.7.0 <0.9.0
 
-### 1. 克隆仓库
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-org/maritime-data-exchange.git
 cd maritime-data-exchange
 ```
 
-### 2. 安装依赖
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-## 部署指南
+## Deployment Guide
 
-1. 编译合约：
+1. Compile the contract:
 
 ```bash
 npx hardhat compile
 ```
 
-2. 启动本地测试链：
+2. Start a local testnet:
 
 ```bash
 npx hardhat node
 ```
 
-3. 部署合约：
+3. Deploy the contract:
 
 ```bash
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
-部署脚本（scripts/deploy.js）示例：
+Example deployment script (`scripts/deploy.js`):
 
 ```javascript
 async function main() {
@@ -83,22 +83,22 @@ main().catch((error) => {
 });
 ```
 
-## 合约功能概览
+## Contract Functions Overview
 
-- `submitMaritimeOrder`：提交加密的海事数据订单（出售/需求）
-- `cancelMaritimeOrder`：取消未成交订单
-- `matchMaritimeOrders`：撮合两个订单，自动验证并完成费用分发
-- `setFeeTo`：设置费用接收地址
+- `submitMaritimeOrder`: Submit an encrypted maritime data order (either offering or requesting)
+- `cancelMaritimeOrder`: Cancel an unmatched data order
+- `matchMaritimeOrders`: Match two orders, verify signatures, and perform data/asset transfer
+- `setFeeTo`: Set the address to receive platform transaction fees
 
-## 测试用例
+## Test Cases
 
-执行以下命令运行测试：
+Run the following command to execute tests:
 
 ```bash
 npx hardhat test
 ```
 
-测试文件（test/MaritimeDataRouter.test.js）示例：
+Example test file (`test/MaritimeDataRouter.test.js`):
 
 ```javascript
 const { expect } = require("chai");
@@ -146,10 +146,9 @@ describe("MaritimeDataRouter", function () {
 });
 ```
 
-## 应用场景示例
+## Example Use Cases
 
-- 港口对港口：如宁波港与新加坡港之间实时追踪货物流信息
-- 船舶航线调度：接入天气、AIS 轨迹数据实现链上验证与定价
-- 空间卫星数据租用：数据提供商可设置权限、自动获益
-- 货代订单自动撮合：挂单撮合可自动执行合约完成交易
-
+- **Port-to-port collaboration**: Real-time tracking of cargo flow between ports (e.g., Ningbo Port ↔ Singapore Port)
+- **Vessel scheduling and weather data**: Chain-based verification and pricing using AIS and meteorological data
+- **Satellite data leasing**: Providers offer encrypted access with permission controls and automated payment
+- **Logistics order matching**: Forwarders can submit and match orders through smart contract automation
