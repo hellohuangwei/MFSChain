@@ -141,4 +141,4 @@ mvn test
 
 ## 📄 License
 
-MIT License © 2025 Wei Huang
+shagnhai Maritime university License © 2025 Wei Huang
