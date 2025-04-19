@@ -1,28 +1,45 @@
 
 # ⚓ MFSChain Cluster
 
-**MFSChain Cluster** is the first **blockchain cluster** designed for the **efficient management of large-scale off-chain data in MASS (Maritime Autonomous Surface Ships)**.  
-It is built entirely using **Spring Boot**, offering an enterprise-grade, modular, and extensible backend framework for maritime blockchain infrastructure.
+**MFSChain Cluster** is the **first blockchain-based cluster** tailored for the **efficient management of large-scale off-chain maritime data (MASS)**. This system is implemented using **Spring Boot**, with a modular design to support consensus, peer-to-peer networking, data synchronization, and decentralized data services.
 
-> 🔗 GitHub: [https://github.com/hellohuangwei/MFSChain.git](https://github.com/hellohuangwei/MFSChain.git)
+> Built for smart shipping, MFSChain bridges vessel, port, and institutional data across borders and platforms.
 
 ---
 
-## 🌊 Overview
+## 🌐 Project Repository
 
-Modern maritime systems require secure, scalable, and interoperable data platforms for:
+📦 GitHub: [https://github.com/hellohuangwei/MFSChain.git](https://github.com/hellohuangwei/MFSChain.git)
 
-- Autonomous navigation coordination  
-- Cross-border port and vessel communication  
-- Secure storage and verification of sensor and route data  
-- Consensus among distributed maritime nodes  
+---
 
-**MFSChain Cluster** addresses these challenges with a Spring Boot–powered blockchain node cluster capable of:
+## 🔧 Tech Stack
 
-- ✅ Running **Aigle consensus** for secure and trust-based voting  
-- 🧱 Managing multi-role nodes (vessels, ports, providers)  
-- 🛰 Syncing on-chain and off-chain data in real time  
-- 🌐 Providing robust REST and WebSocket interfaces  
+- **Java 17+**
+- **Spring Boot**
+- **WebSocket** for real-time sync
+- **Hibernate + MySQL** for off-chain data storage
+- **Custom P2P Protocol** for node communication
+- **Aigle Consensus** for efficient and trust-based consensus in dynamic networks
+
+---
+
+## 📁 Project Structure
+
+```
+├── config           # System-wide configurations
+├── consensus        # Aigle consensus algorithm and voting mechanics
+├── core             # Core blockchain classes and chain management
+├── crypto           # Cryptographic operations (hashing, Merkle Tree, signatures)
+├── data             # Maritime data model and data block handling
+├── network          # Network-level communication logic
+├── node             # Node identity and validator management
+├── p2p              # Peer-to-peer networking, broadcasting, handshake protocols
+├── rpc              # RESTful and RPC APIs for external interaction
+├── storage          # Persistent storage and off-chain DB sync logic
+├── test             # Unit and integration tests
+└── MfsChainApplication.java  # Spring Boot main entry point
+```
 
 ---
 
@@ -31,136 +48,97 @@ Modern maritime systems require secure, scalable, and interoperable data platfor
 ### Prerequisites
 
 - Java 17+
-- Maven 3.8+
-- MySQL 8.x+
+- Maven 3.6+
+- MySQL 8+ (used for off-chain storage)
 - Git
 
-### Clone the Repository
+### Build and Run
 
 ```bash
 git clone https://github.com/hellohuangwei/MFSChain.git
 cd MFSChain
-```
-
-### Configuration
-
-Edit `application.yml` for your local environment:
-
-```yaml
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/mfschain
-    username: root
-    password: your_password
-server:
-  port: 8080
-```
-
-### Build & Run
-
-```bash
 mvn clean install
 java -jar target/mfschain-0.0.1-SNAPSHOT.jar
 ```
 
 ---
 
-## 🧩 Main Modules
+## 🌊 Main Modules
 
-| Module                  | Description                                                                 |
-|-------------------------|-----------------------------------------------------------------------------|
-| `MaritimeNodeService`   | Manages registration, metadata, and trust levels of nodes                   |
-| `AigleConsensusService` | Executes Aigle consensus across nodes based on impact and votes             |
-| `MaritimeDataService`   | Handles uploading, verifying, and Merkle-hashing maritime data              |
-| `WebSocketService`      | Pushes real-time consensus and data sync events to subscribed clients       |
-| `DataSyncService`       | Connects blockchain smart contracts to off-chain systems for event logging  |
-| `NodeController`        | RESTful APIs for node control and consensus triggering                     |
+### 🔗 consensus
+
+Implements the **Aigle consensus algorithm**, allowing nodes to reach agreement through trust metrics, clustering, and voting strategies.
+
+### 🌍 p2p
+
+Manages peer-to-peer communication and decentralized networking between nodes. Includes broadcasting, message routing, and handshake protocol.
+
+### 📦 data
+
+Handles maritime data blocks (position, speed, timestamps), Merkle trees, and sync status between nodes.
+
+### 📡 websocket
+
+Supports **real-time synchronization** of maritime data via WebSocket channels. Pushes block status and consensus state updates across all listeners.
+
+### 🧠 core
+
+Blockchain core components such as ledger management, chain validator, and block appending logic.
+
+### 🔐 crypto
+
+Provides essential cryptographic utilities: hashing, digital signatures, and Merkle tree generation.
+
+### 🧩 node
+
+Maintains vessel/node identities, their trust scores, PoMST results, and clustering behaviors.
+
+### 📊 rpc
+
+REST + RPC interface for external apps to submit data, query consensus results, and monitor sync status.
 
 ---
 
-## 📡 WebSocket Realtime Sync
+## 📡 WebSocket Usage
 
-**MFSChain Cluster** uses WebSocket to deliver live updates to UIs and systems.
+WebSocket endpoints are exposed under:
 
-- Endpoint: `ws://localhost:8080/ws/consensus`
-- Topics:
-  - `/topic/consensus/progress` — Tracks Aigle consensus stages
-  - `/topic/data/accepted` — Notifies when data is accepted
-  - `/topic/node/status` — Node join/leave and status changes
+```
+ws://localhost:8080/ws/consensus
+ws://localhost:8080/ws/data-stream
+```
 
-Clients connect via STOMP WebSocket protocol.
-
----
-
-## 📜 Swagger API Documentation
-
-Visit:  
-🔗 [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
-
-Sample endpoints:
-
-| Method | Endpoint                      | Description                             |
-|--------|-------------------------------|-----------------------------------------|
-| `POST` | `/api/nodes/register`         | Register a new node                     |
-| `GET`  | `/api/nodes/all`              | List all registered nodes               |
-| `POST` | `/api/consensus/start`        | Start Aigle consensus                   |
-| `POST` | `/api/data/upload`            | Upload new maritime data block          |
+Use these to subscribe to:
+- Cluster consensus status updates
+- Real-time data acceptance/rejection
+- Node heartbeat and presence changes
 
 ---
 
 ## 🧪 Testing
 
-Run backend tests with:
-
 ```bash
 mvn test
 ```
 
-Covers:
+---
 
-- Node onboarding and role validation  
-- Cluster consensus behavior under voting thresholds  
-- Data storage and trust-level adjustments  
-- WebSocket message delivery simulation  
+## 📌 Example Use Cases
+
+- **Port Coordination**: Real-time synchronization of berth, traffic, and cargo data
+- **Satellite Data Leasing**: Encrypted satellite-based services via smart routing
+- **AIS + Weather Fusion**: Combine real-time AIS and met-ocean data with cryptographic validation
 
 ---
 
-## 🌐 Use Cases
+## 🛠️ Future Work
 
-- ✅ **Autonomous ship coordination** via on-chain trust signals  
-- 🔄 **Vessel ↔ Port sync** using PoMST and cluster consensus  
-- 📡 **Sensor data validation** with Merkle proof in mass ship systems  
-- 🤝 **Cross-org data sharing** verified and pushed via WebSocket  
-
----
-
-## 🛠 Directory Structure
-
-```
-src/
- ├── controller/        # REST endpoints
- ├── websocket/         # WebSocket config + push handlers
- ├── consensus/         # Aigle algorithm logic
- ├── data/              # JPA entities (Node, DataBlock, Merkle, etc.)
- ├── service/           # Core business services
- ├── repository/        # Database operations
- └── MfschainApplication.java
-```
+- Integration with on-chain Ethereum data market
+- Trusted execution environment (TEE) support
+- Visual dashboard for consensus visualization
 
 ---
 
-## 📈 Roadmap
+## 📄 License
 
-- [x] Node voting and impact analysis
-- [x] Aigle consensus with trust adjustment
-- [x] Real-time WebSocket communication
-- [x] Swagger3 OpenAPI documentation
-- [ ] Integration with `MaritimeDataRouter` contract
-- [ ] Role-based access via JWT
-- [ ] Deployment via Docker + Kubernetes
-
----
-
-## 📜 License
-
-MIT License
+MIT License © 2025 Wei Huang
