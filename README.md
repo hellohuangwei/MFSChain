@@ -1,7 +1,11 @@
-
 # ⚓ MFSChain Cluster
 
-**MFSChain Cluster** is the **first blockchain-based cluster** tailored for the **efficient management of large-scale off-chain maritime data (MASS)**. This system is implemented using **Spring Boot**, with a modular design to support consensus, peer-to-peer networking, data synchronization, and decentralized data services.
+**MFSChain Cluster** is the **first blockchain-based cluster** tailored for the **efficient management of large-scale off-chain maritime data (MASS)**. This system is implemented using **Spring Boot**, featuring a modular architecture to support:
+
+- 🔄 Aigle consensus algorithm  
+- 🌐 Peer-to-peer node networking  
+- 🧩 WebSocket-based communication  
+- ⚙️ Decentralized maritime data synchronization and validation  
 
 > Built for smart shipping, MFSChain bridges vessel, port, and institutional data across borders and platforms.
 
@@ -13,132 +17,80 @@
 
 ---
 
-## 🔧 Tech Stack
+## 🧠 Aigle Consensus Flow
 
-- **Java 17+**
-- **Spring Boot**
-- **WebSocket** for real-time sync
-- **Hibernate + MySQL** for off-chain data storage
-- **Custom P2P Protocol** for node communication
-- **Aigle Consensus** for efficient and trust-based consensus in dynamic networks
-
----
-
-## 📁 Project Structure
-
-```
-├── config           # System-wide configurations
-├── consensus        # Aigle consensus algorithm and voting mechanics
-├── core             # Core blockchain classes and chain management
-├── crypto           # Cryptographic operations (hashing, Merkle Tree, signatures)
-├── data             # Maritime data model and data block handling
-├── network          # Network-level communication logic
-├── node             # Node identity and validator management
-├── p2p              # Peer-to-peer networking, broadcasting, handshake protocols
-├── rpc              # RESTful and RPC APIs for external interaction
-├── storage          # Persistent storage and off-chain DB sync logic
-├── test             # Unit and integration tests
-└── MfsChainApplication.java  # Spring Boot main entry point
-```
+Node successfully registered  
+   ↓  
+Added to the node pool (managed by `AigleConsensusService`)  
+   ↓  
+Receives a transaction / block proposal (e.g., new data block or transaction request)  
+   ↓  
+Executes `startConsensus()` which includes:  
+    • Initial sampling  
+    • Impact evaluation  
+    • Clustering and trust-based voting synchronization  
+   ↓  
+Once sampling results meet consensus threshold  
+   ↓  
+✅ Consensus reached → Broadcast the result to all nodes via WebSocket  
+   ↓  
+📦 All nodes confirm → Begin constructing a new block on the chain  
 
 ---
 
-## 🚀 Getting Started
+## 🔌 WebSocket Node Communication
 
-### Prerequisites
+MFSChain uses Spring WebSocket + STOMP for real-time consensus broadcasting among nodes. The broadcasting service pushes consensus results to `/topic/consensus`, and all nodes subscribe to receive new block status or voting results.
 
-- Java 17+
-- Maven 3.6+
-- MySQL 8+ (used for off-chain storage)
-- Git
+```java
+// Server-side broadcasting example
+messagingTemplate.convertAndSend("/topic/consensus", "Node X reached consensus on new block.");
+```
 
-### Build and Run
+Nodes can subscribe using STOMP:
 
-```bash
-git clone https://github.com/hellohuangwei/MFSChain.git
-cd MFSChain
-mvn clean install
-java -jar target/mfschain-0.0.1-SNAPSHOT.jar
+```js
+stompClient.subscribe('/topic/consensus', function (message) {
+    console.log("Consensus result: ", message.body);
+});
 ```
 
 ---
 
-## 🌊 Main Modules
+## 🧩 Module Structure Overview
 
-### 🔗 consensus
-
-Implements the **Aigle consensus algorithm**, allowing nodes to reach agreement through trust metrics, clustering, and voting strategies.
-
-### 🌍 p2p
-
-Manages peer-to-peer communication and decentralized networking between nodes. Includes broadcasting, message routing, and handshake protocol.
-
-### 📦 data
-
-Handles maritime data blocks (position, speed, timestamps), Merkle trees, and sync status between nodes.
-
-### 📡 websocket
-
-Supports **real-time synchronization** of maritime data via WebSocket channels. Pushes block status and consensus state updates across all listeners.
-
-### 🧠 core
-
-Blockchain core components such as ledger management, chain validator, and block appending logic.
-
-### 🔐 crypto
-
-Provides essential cryptographic utilities: hashing, digital signatures, and Merkle tree generation.
-
-### 🧩 node
-
-Maintains vessel/node identities, their trust scores, PoMST results, and clustering behaviors.
-
-### 📊 rpc
-
-REST + RPC interface for external apps to submit data, query consensus results, and monitor sync status.
-
----
-
-## 📡 WebSocket Usage
-
-WebSocket endpoints are exposed under:
+Below is an overview of the key modules:
 
 ```
-ws://localhost:8080/ws/consensus
-ws://localhost:8080/ws/data-stream
-```
-
-Use these to subscribe to:
-- Cluster consensus status updates
-- Real-time data acceptance/rejection
-- Node heartbeat and presence changes
-
----
-
-## 🧪 Testing
-
-```bash
-mvn test
+MFSChain
+├── consensus                # Aigle consensus service
+├── p2p                     # Node discovery and peer-to-peer management
+├── websocket               # WebSocket broadcasting module
+├── data                    # Maritime data services and block validation
+├── api                     # RESTful APIs (Swagger supported)
+├── storage                 # Block data storage, caching and cleanup
+├── config                  # Spring Boot configuration and annotations
 ```
 
 ---
 
-## 📌 Example Use Cases
+## 📘 Tech Stack & Features
 
-- **Port Coordination**: Real-time synchronization of berth, traffic, and cargo data
-- **Satellite Data Leasing**: Encrypted satellite-based services via smart routing
-- **AIS + Weather Fusion**: Combine real-time AIS and met-ocean data with cryptographic validation
-
----
-
-## 🛠️ Future Work
-
-- Integration with on-chain Ethereum data market
-- Trusted execution environment (TEE) support
-- Visual dashboard for consensus visualization
+- ☕ Spring Boot microservices architecture
+- 📡 Real-time WebSocket-based node broadcasting
+- 📊 Aigle consensus algorithm (multi-round voting + trust mechanism)
+- 🧱 Merkle tree for data integrity verification
+- 🛰️ Dynamic node registration and participation
+- 🐳 Docker-ready for fast deployment
 
 ---
 
-## 📄 License
+## 👨‍💻 Developer Info
 
-shagnhai Maritime university License © 2025 Wei Huang
+**Author**: Wei Huang  
+**Organization**: Shanghai Maritime University  
+📫 GitHub: [https://github.com/hellohuangwei](https://github.com/hellohuangwei)
+
+---
+
+> 📌 _MFSChain Cluster empowers the next generation of maritime data governance through decentralized, trustworthy, and scalable blockchain infrastructure._
