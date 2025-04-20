@@ -11,11 +11,6 @@
 
 ---
 
-## 🌐 Project Repository
-
-📦 GitHub: [https://github.com/hellohuangwei/MFSChain.git](https://github.com/hellohuangwei/MFSChain.git)
-
----
 
 ## 🧠 Aigle Consensus Flow
 
