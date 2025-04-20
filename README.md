@@ -1,58 +1,57 @@
-
 # ⚓ MFSChain Cluster
 
-**MFSChain Cluster** is the **first blockchain-based cluster** tailored for the **efficient management of large-scale off-chain maritime data (MASS)**. This system is implemented using **Spring Boot**, with a modular design to support consensus, peer-to-peer networking, data synchronization, and decentralized data services.
+**MFSChain Cluster** is the **first blockchain-based cluster** designed for the **efficient management of large-scale off-chain maritime data (MASS)**. Built with **Spring Boot**, it features modular components for consensus, P2P networking, real-time data sync, and decentralized maritime services.
 
-> Built for smart shipping, MFSChain bridges vessel, port, and institutional data across borders and platforms.
+> 🌐 Built for smart shipping — bridging vessel, port, and institutional data across borders and platforms.
 
 ---
 
-## 🌐 Project Repository
+## 📦 GitHub Repository
 
-📦 GitHub: [https://github.com/hellohuangwei/MFSChain.git](https://github.com/hellohuangwei/MFSChain.git)
+👉 [MFSChain GitHub](https://github.com/hellohuangwei/MFSChain.git)
 
 ---
 
 ## 🔧 Tech Stack
 
-- **Java 17+**
-- **Spring Boot**
-- **WebSocket** for real-time sync
-- **Hibernate + MySQL** for off-chain data storage
-- **Custom P2P Protocol** for node communication
-- **Aigle Consensus** for efficient and trust-based consensus in dynamic networks
+- ☕ **Java 17+**
+- 🚀 **Spring Boot**
+- 🌐 **WebSocket** for real-time sync
+- 🛢 **Hibernate + MySQL** for off-chain data
+- 📡 **Custom P2P Protocol** for node communication
+- 🧠 **Aigle Consensus** — trust-based algorithm for dynamic node networks
 
 ---
 
 ## 📁 Project Structure
 
-```
-├── config           # System-wide configurations
-├── consensus        # Aigle consensus algorithm and voting mechanics
-├── core             # Core blockchain classes and chain management
-├── crypto           # Cryptographic operations (hashing, Merkle Tree, signatures)
-├── data             # Maritime data model and data block handling
-├── network          # Network-level communication logic
-├── node             # Node identity and validator management
-├── p2p              # Peer-to-peer networking, broadcasting, handshake protocols
-├── rpc              # RESTful and RPC APIs for external interaction
-├── storage          # Persistent storage and off-chain DB sync logic
+```plaintext
+├── config           # Global configs and application setup
+├── consensus        # Aigle consensus logic and trust voting
+├── core             # Blockchain core components (chain, ledger, blocks)
+├── crypto           # Hashing, signatures, Merkle tree
+├── data             # Maritime data block structure & sync logic
+├── network          # Node communication & status exchange
+├── node             # Vessel identity, trust score, PoMST status
+├── p2p              # Decentralized P2P network stack
+├── rpc              # API interfaces (RESTful + RPC)
+├── storage          # Persistent DB and block storage
 ├── test             # Unit and integration tests
-└── MfsChainApplication.java  # Spring Boot main entry point
+└── MfsChainApplication.java  # Spring Boot main entry
 ```
 
 ---
 
 ## 🚀 Getting Started
 
-### Prerequisites
+### 🔍 Prerequisites
 
 - Java 17+
 - Maven 3.6+
-- MySQL 8+ (used for off-chain storage)
+- MySQL 8+
 - Git
 
-### Build and Run
+### ▶️ Run Locally
 
 ```bash
 git clone https://github.com/hellohuangwei/MFSChain.git
@@ -63,78 +62,96 @@ java -jar target/mfschain-0.0.1-SNAPSHOT.jar
 
 ---
 
-## 🌊 Main Modules
+## 🧠 Core Modules
 
-### 🔗 consensus
+### 🔗 `consensus`
 
-Implements the **Aigle consensus algorithm**, allowing nodes to reach agreement through trust metrics, clustering, and voting strategies.
+- Implements **Aigle Consensus**
+- Features trust-value voting
+- Sampling, impact evaluation, clustering
 
-### 🌍 p2p
+### 🌐 `p2p`
 
-Manages peer-to-peer communication and decentralized networking between nodes. Includes broadcasting, message routing, and handshake protocol.
+- Node discovery and handshake
+- Transaction/block broadcasting
+- Peer status monitoring
 
-### 📦 data
+### 📦 `data`
 
-Handles maritime data blocks (position, speed, timestamps), Merkle trees, and sync status between nodes.
+- Structured maritime data blocks
+- GPS, velocity, timestamp support
+- Merkle root and proof path generation
 
-### 📡 websocket
+### 📡 `websocket`
 
-Supports **real-time synchronization** of maritime data via WebSocket channels. Pushes block status and consensus state updates across all listeners.
+- Real-time data & consensus sync
+- Pushes block status updates
+- Channel-based event handling
 
-### 🧠 core
+### 🧠 `core`
 
-Blockchain core components such as ledger management, chain validator, and block appending logic.
+- Chain and block management
+- Ledger validation
+- Block proposal and verification
 
-### 🔐 crypto
+### 🔐 `crypto`
 
-Provides essential cryptographic utilities: hashing, digital signatures, and Merkle tree generation.
+- SHA-256 hashing
+- Merkle Tree computation
+- Digital signature utilities
 
-### 🧩 node
+### 🧩 `node`
 
-Maintains vessel/node identities, their trust scores, PoMST results, and clustering behaviors.
+- Maintains node/vessel state
+- Handles PoMST proof results
+- Stores trust values & cluster grouping
 
-### 📊 rpc
+### 📊 `rpc`
 
-REST + RPC interface for external apps to submit data, query consensus results, and monitor sync status.
+- Swagger-documented REST APIs
+- External interfaces for data sync
+- Includes block explorer endpoints
 
 ---
 
-## 🧠 Aigle Consensus Flow
-
-Node successfully registered  
-   ↓  
-Added to the node pool (managed by `AigleConsensusService`)  
-   ↓  
-Receives a transaction / block proposal (e.g., new data block or transaction request)  
-   ↓  
-Executes `startConsensus()` which includes:  
-    • Initial sampling  
-    • Impact evaluation  
-    • Clustering and trust-based voting synchronization  
-   ↓  
-Once sampling results meet consensus threshold  
-   ↓  
-✅ Consensus reached → Broadcast the result to all nodes via WebSocket  
-   ↓  
-📦 All nodes confirm → Begin constructing a new block on the chain  
-
-## 📡 WebSocket Usage
-
-WebSocket endpoints are exposed under:
+## 🧭 Aigle Consensus Flow
 
 ```
+✅ Node registered
+        ↓
+🎯 Added to node pool (`AigleConsensusService`)
+        ↓
+📨 Receives transaction / block proposal
+        ↓
+🧠 startConsensus()
+    ├── Initial sampling
+    ├── Impact evaluation
+    └── Clustering & trust-based vote
+        ↓
+✔️ Consensus threshold met
+        ↓
+📢 Broadcast result via WebSocket
+        ↓
+📦 All nodes confirm → New block construction begins
+```
+
+---
+
+## 📡 WebSocket Endpoints
+
+```bash
 ws://localhost:8080/ws/consensus
 ws://localhost:8080/ws/data-stream
 ```
 
-Use these to subscribe to:
-- Cluster consensus status updates
-- Real-time data acceptance/rejection
-- Node heartbeat and presence changes
+Subscribe to:
+- ✅ Consensus result notifications
+- 📦 Block proposal status
+- 👥 Node availability and heartbeat
 
 ---
 
-## 🧪 Testing
+## 🧪 Running Tests
 
 ```bash
 mvn test
@@ -142,22 +159,28 @@ mvn test
 
 ---
 
-## 📌 Example Use Cases
+## 🧰 Example Use Cases
 
-- **Port Coordination**: Real-time synchronization of berth, traffic, and cargo data
-- **Satellite Data Leasing**: Encrypted satellite-based services via smart routing
-- **AIS + Weather Fusion**: Combine real-time AIS and met-ocean data with cryptographic validation
+- ⚓ **Port Coordination**  
+  Synchronize berth/traffic/cargo across stakeholders
 
----
+- 🛰 **Satellite Data Leasing**  
+  Provide secure encrypted channels for leasing and retrieval
 
-## 🛠️ Future Work
-
-- Integration with on-chain Ethereum data market
-- Trusted execution environment (TEE) support
-- Visual dashboard for consensus visualization
+- 🌦 **AIS + Weather Fusion**  
+  Integrate real-time AIS and weather data for route optimization
 
 ---
 
-## 📄 License
+## 🚧 Future Improvements
 
-Shanghai maritime university License © 2025 Wei Huang
+- 🔗 Ethereum-compatible data oracle module
+- 🛡 Trusted Execution Environment (TEE) support
+- 📊 Interactive dashboard for consensus & node metrics
+
+---
+
+## 📜 License
+
+© 2025 Wei Huang — Shanghai Maritime University  
+Distributed under a university-specific open source license.
