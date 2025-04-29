@@ -1,6 +1,6 @@
 package com.example.mfschain.crypto;
 
-import com.example.mfschain.data.MaritimeDataBlock;
+import com.example.mfschain.data.MaritimeBlockData;
 
 import java.security.MessageDigest;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.List;
 public class MerkleTreeUtil {
 
     // Method to generate Merkle tree root hash and verification paths
-    public MaritimeDataBlock generateMerkleTree(List<String> dataBlocks) {
+    public MaritimeBlockData generateMerkleTree(List<String> dataBlocks) {
         List<String> leafNodes = new ArrayList<>();
 
         // Step 1: Hash each data block and create leaf nodes
@@ -40,7 +40,7 @@ public class MerkleTreeUtil {
 
         // Step 3: The root hash is the last remaining element in the tree
         String rootHash = treeLayer.get(0);
-        return new MaritimeDataBlock("",rootHash, verificationPaths);
+        return new MaritimeBlockData("",rootHash, verificationPaths);
     }
 
     // Utility method to hash data

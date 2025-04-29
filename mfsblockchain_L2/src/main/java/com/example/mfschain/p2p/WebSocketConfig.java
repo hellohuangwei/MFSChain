@@ -23,5 +23,12 @@ public class WebSocketConfig implements WebSocketConfigurer {
         registry.addHandler(new MaritimeDataWebSocketHandler(), "/ws/maritimedata")
                 .addInterceptors(new HttpSessionHandshakeInterceptor())  // Optionally add interceptors to manage sessions
                 .setAllowedOrigins("*"); // Allow cross-origin requests
+
+        registry.addHandler(new BlockWebSocketHandler(), "/ws/block")
+                .setAllowedOrigins("*"); // Allow all origins (you can restrict to specific ones)
     }
+
+
+
+
 }

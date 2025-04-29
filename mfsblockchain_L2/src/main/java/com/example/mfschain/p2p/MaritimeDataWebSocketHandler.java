@@ -40,13 +40,13 @@ public class MaritimeDataWebSocketHandler extends TextWebSocketHandler {
         if (isValid) {
             System.out.println("Data is valid!");
         } else {
-            System.out.println("Data is invalid!");
+            System.out.println("Data is isvalid!");
         }
-        MaritimeDataBlock maritimeDataBlock = new MaritimeDataBlock();
+        MaritimeBlockData maritimeDataBlock = new MaritimeBlockData();
         maritimeDataBlock.setVesselId(maritimeData.getVesselId());
         maritimeDataBlock.setRootHash(result.getRootHash());
         maritimeDataBlock.setVerificationPaths(result.getVerificationPaths());
-        // Save MaritimeDataBlock to database
+        // Save MaritimeBlockData to database
         maritimeDataBlockService.saveMaritimeDataBlock(maritimeDataBlock);
 
         // Optionally, send a response to the client with the root hash and verification paths

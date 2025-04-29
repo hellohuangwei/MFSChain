@@ -1,176 +1,211 @@
 package com.example.mfschain.consensus;
 
-import jakarta.annotation.PostConstruct;
-import lombok.extern.slf4j.Slf4j;
+import com.example.mfschain.core.MaritimeBlockService;
+import com.example.mfschain.data.MaritimeBlock;
+import com.example.mfschain.data.MaritimeBlockRepository;
+import com.example.mfschain.data.MaritimeNode;
+import com.example.mfschain.data.MaritimeNodeRepository;
+import com.example.mfschain.p2p.BlockWebSocketHandler;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.List;
+import java.util.Optional;
+import java.util.Random;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-@Slf4j
 @Service
 public class AigleConsensusService {
 
-    private final double vMin = 5;             // Minimum voting threshold
-    private final double thetaImpact = 0.5;    // Impact threshold
-    private final double thetaNetwork = 0.8;   // Network consensus threshold
-    private final double alpha1 = 0.2;
-    private final double alpha2 = 0.3;
-    private final double alpha3 = 0.5;
+    @Autowired
+    private VoteRepository voteRepository;  // Repository for vote data
 
-    private final List<Node> nodes = new ArrayList<>();
+    @Autowired
+    private MaritimeBlockRepository maritimeBlockRepository;  // Repository for maritime blocks
 
-    // Called after bean initialization
-    @PostConstruct
-    public void init() {
-        initializeNodes(10); // Create 10 sample nodes
-        startConsensus();    // Launch consensus process
-    }
+    @Autowired
+    private MaritimeBlockService maritimeBlockService;  // Block service for creating and broadcasting blocks
 
-    // Initialize test nodes
-    private void initializeNodes(int numberOfNodes) {
-        for (int i = 0; i < numberOfNodes; i++) {
-            Node node = new Node(i);
-            if (i % 2 == 0) {
-                node.setPassedPoMST(true); // Some nodes passed PoMST
-            }
-            nodes.add(node);
-        }
-    }
+    @Autowired
+    private MaritimeNodeRepository maritimeNodeRepository;
 
-    // Start the consensus process
-    public void startConsensus() {
-        for (Node node : nodes) {
-            initialSampling(node);
-        }
-    }
+    @Autowired
+    private BlockWebSocketHandler blockWebSocketHandler;  // Inject the WebSocket handler
 
-    // Initial sampling step
-    private void initialSampling(Node node) {
-        Set<Node> sampleSet = new HashSet<>(nodes);
-        int initialVotes = 0;
+    /**
+     * Step 1: Initial Sampling
+     * Retrieves vote data from the database and performs initial sampling.
+     * @param maritimeDataId The maritime data ID
+     * @param nodeId The current node ID
+     * @return Whether the initial sampling passes
+     */
+    public boolean initialSampling(String maritimeDataId, String nodeId) {
+        // Randomly select nodes and retrieve their vote data
+        Set<String> sampledNodes = selectRandomNodes(nodeId);
+        int voteCount = 0;
 
-        for (Node neighbor : sampleSet) {
-            if (neighbor.isPassedPoMST()) {
-                neighbor.setVote(1);
-                initialVotes++;
-            } else {
-                neighbor.setVote(0);
+        // Iterate over the selected nodes and check if they pass PoMST
+        for (String k : sampledNodes) {
+            Optional<Vote> voteOptional = voteRepository.findByMaritimeDataIdAndNodeId(maritimeDataId, k);
+            if (voteOptional.isPresent()) {
+                Vote vote = voteOptional.get();
+                if (vote.isPassedPoMST()) {
+                    voteCount++;
+                }
             }
         }
 
-        if (initialVotes >= vMin) {
-            secondarySamplingAndClusterSync(node);
-        } else {
-            rejectData(node);
+        // Calculate the initial vote total
+        int Vj0 = voteCount;
+
+        // If Vj0 reaches the threshold, proceed to secondary sampling
+        if (Vj0 >= 3) {  // Assuming v_min = 3
+            return true;
         }
+
+        // Otherwise, reject the node's data
+        return false;
     }
 
-    // Secondary sampling and clustering
-    private void secondarySamplingAndClusterSync(Node node) {
-        Set<Node> sampleSet = new HashSet<>(nodes);
-        Map<Integer, Set<Node>> clusters = new HashMap<>();
-        clusters.put(node.getId(), new HashSet<>());
+    /**
+     * Step 2: Secondary Sampling and Cluster Synchronization
+     * Synchronizes clusters and performs secondary sampling.
+     * @param maritimeDataId The maritime data ID
+     * @param nodeId The current node ID
+     */
+    public void secondarySampling(String maritimeDataId, String nodeId) {
+        // Reset the C_j flag
+        int Cj = 1;
 
-        for (Node other : sampleSet) {
-            double impact = node.calculateImpact(other);
-            if (impact >= thetaImpact) {
-                clusters.get(node.getId()).add(other);
+        // Randomly select secondary sampling nodes
+        Set<String> sampledNodes = selectRandomNodes(nodeId);
+
+        // Compute clustering influence factor for each node
+        for (String i : sampledNodes) {
+            double impact = computeClusteringImpact(i, nodeId);
+            if (impact >= 0.5) {  // Assuming theta_impact = 0.5
+                synchronizeVotes(i, nodeId);
             }
         }
-
-        synchronizeVotesAndUpdateTrust(node, clusters);
     }
 
-    // Synchronize votes and update trust
-    private void synchronizeVotesAndUpdateTrust(Node node, Map<Integer, Set<Node>> clusters) {
-        for (Map.Entry<Integer, Set<Node>> cluster : clusters.entrySet()) {
-            Set<Node> clusterNodes = cluster.getValue();
-            int majorityVote = 0;
+    /**
+     * Compute the clustering impact factor.
+     * @param nodeA Node A
+     * @param nodeB Node B
+     * @return The clustering impact factor
+     */
+    private double computeClusteringImpact(String nodeA, String nodeB) {
+        double dataInteraction = 1.0;  // Simplified value
+        double communicationFreq = 1.0;  // Simplified value
+        double balance = 1.0;  // Simplified value
 
-            for (Node clusterNode : clusterNodes) {
-                majorityVote += clusterNode.getVote();
-            }
-
-            double newTrust = majorityVote >= (clusterNodes.size() / 2.0) ? 1 : 0;
-            node.setTrustValue(newTrust == 1 ? node.getTrustValue() + 1 : node.getTrustValue() - 1);
-        }
-
-        checkGlobalConsensus(node);
+        double alpha1 = 0.4, alpha2 = 0.3, alpha3 = 0.3;  // Assumed weights
+        return alpha1 * dataInteraction + alpha2 * communicationFreq + alpha3 * balance;
     }
 
-    // Check for global consensus
-    private void checkGlobalConsensus(Node node) {
-        double totalTrust = 0;
-        for (Node n : nodes) {
-            totalTrust += n.getTrustValue();
-        }
+    /**
+     * Synchronize votes for nodes in the same cluster.
+     * @param nodeA Node A
+     * @param nodeB Node B
+     */
+    private void synchronizeVotes(String nodeA, String nodeB) {
+        // Synchronize vote data between nodes A and B (simplified)
+        Optional<Vote> voteA = voteRepository.findByMaritimeDataIdAndNodeId(nodeA, nodeB);
+        Optional<Vote> voteB = voteRepository.findByMaritimeDataIdAndNodeId(nodeB, nodeA);
 
-        if (totalTrust >= thetaNetwork * nodes.size()) {
-            acceptData(node);
-        } else {
-            rejectData(node);
+        if (voteA.isPresent() && voteB.isPresent()) {
+            // Sync the votes between node A and node B
+            int synchronizedVote = (voteA.get().getVote() + voteB.get().getVote()) / 2;
+
+            voteA.get().setVote(synchronizedVote);
+            voteB.get().setVote(synchronizedVote);
+
+            voteRepository.save(voteA.get());
+            voteRepository.save(voteB.get());
         }
     }
 
-    // Accept node's data
-    private void acceptData(Node node) {
-        log.info("Node {}'s data accepted by the network.", node.getId());
+    /**
+     * Step 3: Global Consensus
+     * Checks if global consensus is achieved.
+     * @param maritimeDataId The maritime data ID
+     * @return Whether global consensus is achieved
+     */
+    public boolean globalConsensus(String maritimeDataId) {
+        List<Vote> votes = (List<Vote>) voteRepository.findByMaritimeDataId(maritimeDataId);
+        int VjSum = 0;
+
+        // Calculate the total votes
+        for (Vote vote : votes) {
+            VjSum += vote.isPassedPoMST() ? 1 : 0;
+        }
+
+        // Check if global consensus is reached
+        if (VjSum >= 3) {  // Assuming theta_network = 3
+            // Create a new block after consensus
+            Optional<MaritimeBlock> lastBlock = maritimeBlockRepository.findTopByOrderByHeightDesc();
+            MaritimeBlock previousBlock = lastBlock.orElseThrow(() -> new RuntimeException("No previous block found"));
+
+            // Generate a Merkle root for the new block (simplified here as an example)
+            String newRootHash = getNewBlockHash();
+
+            // Create a new block and broadcast it
+            MaritimeBlock newBlock = maritimeBlockService.createNewBlock(newRootHash, previousBlock);
+
+            return true;
+        }
+
+        return false;
     }
 
-    // Reject node's data
-    private void rejectData(Node node) {
-        log.warn("Node {}'s data rejected by the network.", node.getId());
+
+    private String getNewBlockHash() {
+        // In a real scenario, generate a Merkle root based on data
+        return "newBlockHash";
     }
 
-    // Internal class for node representation
-    static class Node {
-        private final int id;
-        private boolean passedPoMST;
-        private int vote;
-        private double trustValue;
-        private final Set<Node> neighbors = new HashSet<>();
 
-        public Node(int id) {
-            this.id = id;
-        }
+    /**
+     * Randomly select nodes for sampling (from the database).
+     * @param nodeId The current node ID
+     * @return A set of randomly selected nodes
+     */
+    private Set<String> selectRandomNodes(String nodeId) {
+        // Fetch all verified and validation nodes with the status 'ACTIVE'
+        List<MaritimeNode> validationNodes = maritimeNodeRepository.findByIsValidationNodeTrueAndIsVerifiedTrueAndStatus("ACTIVE");
 
-        public double calculateImpact(Node other) {
-            double dataInteraction = 1.0;
-            double commFreq = 1.0;
-            double balance = 1.0;
-            return 0.2 * dataInteraction + 0.3 * commFreq + 0.5 * balance;
-        }
+        // Exclude the current node from the list
+        validationNodes = validationNodes.stream()
+                .filter(node -> !node.getNodeUrl().equals(nodeId))
+                .collect(Collectors.toList());
 
-        public int getId() {
-            return id;
-        }
+        // Set the number of nodes to sample, for example, 3 nodes.
+        int numberOfSamples = 3;
 
-        public boolean isPassedPoMST() {
-            return passedPoMST;
-        }
+        // Random object to handle randomization
+        Random random = new Random();
 
-        public void setPassedPoMST(boolean passedPoMST) {
-            this.passedPoMST = passedPoMST;
-        }
+        // Randomly select 'numberOfSamples' nodes from the remaining list
+        Set<String> sampledNodes = random.ints(0, validationNodes.size())
+                .distinct()
+                .limit(numberOfSamples)
+                .mapToObj(index -> validationNodes.get(index).getNodeUrl())
+                .collect(Collectors.toSet());
 
-        public int getVote() {
-            return vote;
-        }
+        return sampledNodes;
+    }
 
-        public void setVote(int vote) {
-            this.vote = vote;
-        }
+    /**
+     * After consensus is achieved, create a new block and broadcast it.
+     * @param newBlockHash then ,according The new block hash, other node get the main block data on the database
+     */
+    public void createAndBroadcastNewBlock(String newBlockHash) {
+        // Logic to create a new block (e.g., using your MaritimeBlock class)
+        // This part will depend on your existing block creation logic.
 
-        public double getTrustValue() {
-            return trustValue;
-        }
-
-        public void setTrustValue(double trustValue) {
-            this.trustValue = trustValue;
-        }
-
-        public Set<Node> getNeighbors() {
-            return neighbors;
-        }
+        // Broadcasting the new block to all connected clients
+        blockWebSocketHandler.broadcastNewBlock(newBlockHash);
     }
 }

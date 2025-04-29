@@ -1,5 +1,6 @@
 package com.example.mfschain.data;
 
+import jakarta.persistence.Column;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,6 +19,9 @@ public class MaritimeData {
 
     /** Timestamp */
     private String timestamp;
+
+    /** Hash of the current block */
+    private String hash;
 
     // Constructor
     public MaritimeData(String vesselId, String position, String speed, String timestamp) {

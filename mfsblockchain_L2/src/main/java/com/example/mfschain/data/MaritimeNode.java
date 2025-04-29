@@ -4,15 +4,15 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Entity
 @Data
 @NoArgsConstructor
-@Entity
 @Table(name = "maritime_nodes")
 public class MaritimeNode {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     /** Node URL - Unique URL of the node */
     @Column(name = "node_url", nullable = false, unique = true)
@@ -49,6 +49,9 @@ public class MaritimeNode {
     /** Is Validation Node - Whether the node validates blockchain data */
     @Column(name = "is_validation_node", nullable = false)
     private boolean isValidationNode;
+
+    @Version
+    private Integer version;
 
     // Constructor with all fields
     public MaritimeNode(String nodeUrl, String chainId, String status, long registrationTime,

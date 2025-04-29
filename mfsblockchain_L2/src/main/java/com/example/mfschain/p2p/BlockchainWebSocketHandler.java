@@ -25,6 +25,9 @@ public class BlockchainWebSocketHandler extends TextWebSocketHandler {
         this.connectionManager = new WebSocketConnectionManager();  // Initialize WebSocket connection manager
     }
 
+    //定时查询数据库里面区块的数据，然后批量转发到其他节点，进行批量验证，验证通过的节点进行投票算法
+
+
     /**
      * Handles block synchronization requests.
      * Requests for missing blocks from a specific range (fromIndex to toIndex).
