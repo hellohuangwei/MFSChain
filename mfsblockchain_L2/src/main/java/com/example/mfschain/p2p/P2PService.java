@@ -12,13 +12,13 @@ public class P2PService {
         this.restTemplate = new RestTemplate();
     }
 
-    // 广播区块到所有船舶节点
+    // Broadcast block to all ship nodes
     public void broadcastBlock(String blockData) {
-        // 假设我们从数据库获取所有节点的 URL
-        String[] nodeUrls = {"http://localhost:8081", "http://localhost:8082"};  // 示例节点 URL
+        // Assume we get all node URLs from the database
+        String[] nodeUrls = {"http://localhost:8081", "http://localhost:8082"};  // Example node URLs
 
         for (String nodeUrl : nodeUrls) {
-            // 向每个船舶节点广播区块数据
+            // Broadcast block data to each ship node
             try {
                 restTemplate.postForObject(nodeUrl + "/api/blocks/receive", blockData, String.class);
             } catch (Exception e) {
