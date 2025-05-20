@@ -24,24 +24,24 @@ public class MaritimeBlockchain {
     @PostConstruct
     public void init() {
         try {
-            // 从数据库加载创世区块（如果有的话）
+            // Load genesis block from database (if exists)
             MaritimeBlock genesisBlock = blockRepository.findTopByOrderByHeightDesc();
             if (genesisBlock == null) {
-                // 如果没有创世区块，创建并保存
+                // If no genesis block exists, create and save one
                 genesisBlock = new MaritimeBlock(0, "GENESIS", "0");
                 blockRepository.save(genesisBlock);
             }
-            chain.add(genesisBlock);  // 将创世区块加入链中
+            chain.add(genesisBlock);  // Add genesis block to the chain
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("初始化区块链时出错", e);
+            throw new RuntimeException("Error initializing blockchain", e);
         }
     }
 
-    // 获取指定范围内的区块
+    // Get blocks within specified range
     public List<MaritimeBlock> getBlocksInRange(int fromIndex, int toIndex) {
-        // 根据索引查询区块数据
-        return blockRepository.findBlocksInRange( fromIndex,  toIndex);
+        // Query block data based on index range
+        return blockRepository.findBlocksInRange(fromIndex, toIndex);
     }
 
     public MaritimeBlock addBlock(String maritimeRootHash) {
